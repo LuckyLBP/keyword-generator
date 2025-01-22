@@ -15,12 +15,16 @@ A simple web tool that generates keyword combinations based on areas and keyword
 	3.	Click “Generate” to create keyword combinations.
 	4.	Click “Copy” to copy the results.
 
+## Demo
+Live Demo: https://keyword-generator-livid.vercel.app
+
  ## 📂 File Structure
- /project-root
+```
+/project-root
 │── index.html
 │── styles.css
 │── script.js
-
+```
 ## Example
 ### Input
 ```
