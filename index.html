@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keyword & Area Combiner</title>
+    <title>Keyword & Area Combiner Pro</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -17,9 +17,56 @@
             <textarea id="keywords" placeholder="Enter keywords (one per line)"></textarea>
         </div>
     </div>
-    <button onclick="generateCombinations()">Generate</button>
-    <button onclick="copyToClipboard()">Copy</button>
-    
+
+    <div class="tabs">
+        <button class="tablink active" onclick="openTab(event, 'basic')">Basic</button>
+        <button class="tablink" onclick="openTab(event, 'custom')">Custom Template</button>
+        <button class="tablink" onclick="openTab(event, 'permutations')">Permutations</button>
+        <button class="tablink" onclick="openTab(event, 'save-load')">Save/Load</button>
+    </div>
+
+    <div id="basic" class="tabcontent active">
+        <p>Combine keywords with areas using "keyword i area" format</p>
+    </div>
+
+    <div id="custom" class="tabcontent">
+        <div class="option-group">
+            <label>Custom Template:
+                <input type="text" id="template" value="{keyword} in {area}">
+            </label>
+            <small>Use {keyword} and {area} as placeholders</small>
+        </div>
+    </div>
+
+    <div id="permutations" class="tabcontent">
+        <div class="option-group">
+            <label>Keywords per combination:
+                <input type="number" id="permLength" min="1" value="2">
+            </label>
+        </div>
+    </div>
+
+    <div id="save-load" class="tabcontent">
+        <div class="option-group">
+            <button onclick="saveToFile()">Save to File</button>
+            <button onclick="loadFromFile()">Load from File</button>
+            <button onclick="saveToBrowser()">Save to Browser</button>
+            <button onclick="loadFromBrowser()">Load from Browser</button>
+            <input type="file" id="fileInput" style="display:none;">
+        </div>
+    </div>
+
+    <div class="options">
+        <label><input type="checkbox" id="removeDuplicates"> Remove duplicates</label>
+        <label><input type="checkbox" id="shuffle"> Shuffle results</label>
+    </div>
+
+    <div class="actions">
+        <button onclick="generateCombinations()">Generate</button>
+        <button onclick="copyToClipboard()">Copy Results</button>
+        <button onclick="clearAll()">Clear All</button>
+    </div>
+
     <h2>Generated Combinations</h2>
     <div id="output"></div>
 
